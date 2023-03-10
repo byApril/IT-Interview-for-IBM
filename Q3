@@ -1,0 +1,19 @@
+--Q3
+SELECT owner_id, owner_name, different_category_count
+FROM
+(
+  SELECT owner_id, owner_name, COUNT (DISTINCT category_id) AS different_category_count
+  FROM
+    owner
+  LEFT JOIN
+    (
+      SELECT owner_id,article_id, category_id
+      FROM article
+      LEFT JOIN 
+        category_article_mappting
+      ON article.article_id = category_article_mappting.article_id
+    )t1
+  ON owner.owner_id = t1.owner_id
+  GROUP BY owner_id
+)
+ORDER BY different_category_count DESC
