@@ -1,0 +1,38 @@
+#Q2
+"""
+Read data from input file
+allValid = true
+errorCodes = []
+for each record in input file:
+    allValid = record.isValid
+    if record.isValid is not true:
+        errorCodes append error message
+
+if allValid is true:
+    print "Yes"
+else:
+    print "No"
+    print errorCodes sepearated by space character
+ """
+ 
+# Open file    
+fileHandler  =  open  ("data.txt",  "r")
+# Get list of all lines in file
+listOfLines  =  fileHandler.readlines()
+allValid = true
+errorCodes = []
+
+for line in input listOfLines:
+    temp = line.split("")
+    allValid = line[0]
+    
+    if line[0] is not true:
+        errorCodes.append(record[1:])
+
+if len(errorCodes) == 0:
+    print("Yes")
+else:
+    print ("No",errorCodes)
+    
+# Close file
+fileHandler.close()
