@@ -1,0 +1,42 @@
+#Q1
+
+temp1 = input()
+num_seller = int(temp1)
+temp2 = input()
+size_seller = temp2.split()
+temp3 = input()
+num_buyer = int(temp3)
+temp4 = input()
+size_buyer = temp4.split()
+
+fund=[]
+for i in range(num_buyer):
+  test = size_buyer[i]
+  temp_list = []
+  if test[-1] == 'L':
+    for j in range(num_seller):
+      if num_seller[j].endwith(test):
+        if len(temp_list)<2 or temp_list[1] > len(num_seller[j]):
+          temp_list=[j,len(num_seller[j])]
+    if(len(temp_list)>0):
+      size_seller.remove(size_seller[j])
+      fund.append(size_buyer[i]）
+    else:
+    print('NO')
+      break
+   else:
+    for j in range(num_seller):
+      if num_seller[j].endwith(test):
+        if len(temp_list)<2 or temp_list[1] < len(num_seller[j]):
+          temp_list=[j,len(num_seller[j])]
+    if(len(temp_list)>0):
+      size_seller.remove(size_seller[j])
+      fund.append(size_buyer[i]）
+    else:
+    print('NO')
+      break
+      
+if fund == size_buyer :
+  print('Yes')
+else:
+  print('NO')
